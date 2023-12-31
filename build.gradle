@@ -61,6 +61,8 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation 'org.slf4j:slf4j-simple:2.0.9'
 
+    implementation 'com.trevorism:micronaut-utility-beans:1.2.0'
+    implementation 'com.trevorism:datastore-client:3.2.0'
     acceptanceImplementation 'io.cucumber:cucumber-groovy:6.10.4'
 }
 
