@@ -4,6 +4,6 @@ class ApiRegistration {
     String id
     String name
     String baseUrl
-    boolean active
+    boolean active = true
     Date created
 }

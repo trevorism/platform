@@ -16,6 +16,7 @@ class DefaultApiService implements ApiService{
 
     @Override
     ApiRegistration registerApi(ApiRegistration apiRegistration) {
+        apiRegistration.created = new Date()
         return apiRegistrationRepository.create(apiRegistration)
     }
 
