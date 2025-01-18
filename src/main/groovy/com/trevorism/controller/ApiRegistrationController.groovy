@@ -18,7 +18,7 @@ class ApiRegistrationController {
     @Inject
     ApiService apiService
 
-    @Operation(summary = "Register API", description = "Register a new API")
+    @Operation(summary = "Register API", description = "Register a new API **Secure")
     @Post(value = "/", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
     @Secure(value = Roles.USER)
     HttpResponse registerApi(@Body ApiRegistration apiDetails) {
@@ -26,21 +26,21 @@ class ApiRegistrationController {
         return HttpResponse.created(createdRegistration)
     }
 
-    @Operation(summary = "List APIs", description = "List all registered APIs")
+    @Operation(summary = "List APIs", description = "List all registered APIs **Secure")
     @Get(value = "/", produces = MediaType.APPLICATION_JSON)
     @Secure(value = Roles.USER)
     List<ApiRegistration> listApis() {
         return apiService.list()
     }
 
-    @Operation(summary = "Get an API by Id", description = "Get a specific API by its id")
+    @Operation(summary = "Get an API by Id", description = "Get a specific API by its id **Secure")
     @Get(value = "/{id}", produces = MediaType.APPLICATION_JSON)
     @Secure(value = Roles.USER)
     ApiRegistration getApi(String id) {
         return apiService.get(id)
     }
 
-    @Operation(summary = "Update API Registration", description = "Update a specific API Registration by its id")
+    @Operation(summary = "Update API Registration", description = "Update a specific API Registration by its id **Secure")
     @Put(value = "/{id}", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
     @Secure(value = Roles.USER)
     HttpResponse updateApi(String id, @Body ApiRegistration apiDetails) {
@@ -48,7 +48,7 @@ class ApiRegistrationController {
         return HttpResponse.ok(updatedRegistration)
     }
 
-    @Operation(summary = "Delete API", description = "Delete a specific API by its ID")
+    @Operation(summary = "Delete API", description = "Delete a specific API by its ID **Secure")
     @Delete(value = "/{id}", produces = MediaType.APPLICATION_JSON)
     @Secure(value = Roles.USER)
     ApiRegistration deleteApi(String id) {
